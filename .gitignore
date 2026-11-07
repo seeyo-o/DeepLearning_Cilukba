@@ -1,0 +1,8 @@
+# Data dan artefak besar tidak di-commit (diunduh ulang oleh notebook)
+data/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+run.log
+.venv/
+.env

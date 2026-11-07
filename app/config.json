@@ -1,0 +1,49 @@
+{
+  "model": "MLP M2 skenario S1 seed 1998 (TFLite float16)",
+  "features": [
+    "mattr",
+    "avg_word_len",
+    "function_word_ratio",
+    "avg_sentence_len",
+    "comma_ratio",
+    "exclamation_ratio",
+    "apostrophe_ratio",
+    "informal_punct_ratio",
+    "uppercase_ratio",
+    "digit_ratio",
+    "lowercase_start_ratio"
+  ],
+  "t_star": 0.9235208034515381,
+  "q1": 22,
+  "l_max": 136,
+  "length_groups": [
+    {
+      "name": "K1 (<= 22 kata)",
+      "min": 1,
+      "max": 22,
+      "fpr": 0.01032448377581121,
+      "fnr": 0.7535121328224776
+    },
+    {
+      "name": "K2 (23-42 kata)",
+      "min": 23,
+      "max": 42,
+      "fpr": 0.009198423127463863,
+      "fnr": 0.695583596214511
+    },
+    {
+      "name": "K3 (43-91 kata)",
+      "min": 43,
+      "max": 91,
+      "fpr": 0.00554016620498615,
+      "fnr": 0.4957983193277311
+    },
+    {
+      "name": "K4 (> 91 kata)",
+      "min": 92,
+      "max": 1000000,
+      "fpr": 0.00430416068866571,
+      "fnr": 0.39046199701937406
+    }
+  ]
+}

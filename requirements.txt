@@ -1,0 +1,13 @@
+tensorflow==2.21.0
+numpy==2.5.3
+pandas==3.0.5
+scikit-learn==1.9.1
+scipy==1.18.1
+matplotlib==3.11.2
+seaborn==0.13.2
+datasets==5.1.0
+langdetect==1.0.9
+jupyter
+ipykernel==7.4.0
+ai-edge-litert==2.3.0
+gradio==6.31.0
