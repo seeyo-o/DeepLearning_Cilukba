@@ -10,4 +10,4 @@ langdetect==1.0.9
 jupyter
 ipykernel==7.4.0
 ai-edge-litert==2.3.0
-gradio==6.31.0
+streamlit==1.67.0

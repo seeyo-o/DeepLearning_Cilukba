@@ -10,7 +10,7 @@ Proyek UTS mata kuliah **Pembelajaran Mendalam**, Kelompok **CILUKBA** (IFC-Sore
 | 231111101 | Andrian Cheniago |
 
 ## Ringkasan
-Model Multi-Layer Perceptron (DNN) dilatih untuk menduga apakah sebuah ulasan produk berbahasa Inggris ditulis manusia (OR) atau dihasilkan utuh oleh LLM (CG), hanya dari 11 fitur stilometrik. Evaluasi keandalan memakai tiga *random seed* (1998, 7, 42), *threshold* t* dengan FPR data validation ≤ 1%, uji McNemar *mid-p*, serta pengujian pada ulasan dari model AI yang tidak dipakai saat pelatihan (GLM-5.2 dan LFM2.5-1.2B). Proyek UTS menambahkan kompresi model ke TensorFlow Lite dan aplikasi website Gradio yang dijalankan secara lokal untuk memeriksa satu teks ulasan.
+Model Multi-Layer Perceptron (DNN) dilatih untuk menduga apakah sebuah ulasan produk berbahasa Inggris ditulis manusia (OR) atau dihasilkan utuh oleh LLM (CG), hanya dari 11 fitur stilometrik. Evaluasi keandalan memakai tiga *random seed* (1998, 7, 42), *threshold* t* dengan FPR data validation ≤ 1%, uji McNemar *mid-p*, serta pengujian pada ulasan dari model AI yang tidak dipakai saat pelatihan (GLM-5.2 dan LFM2.5-1.2B). Proyek UTS menambahkan kompresi model ke TensorFlow Lite dan aplikasi website Streamlit untuk memeriksa satu teks ulasan. Aplikasi di-deploy ke Streamlit Community Cloud dan dapat dibuka di **APP_URL**.
 
 ## Struktur
 ```
@@ -19,7 +19,7 @@ src/        # modul yang ditulis oleh notebook (stylometry, data, selection, mod
 figures/    # grafik 300 DPI yang dipakai di laporan
 models/     # model Keras S1 seed 1998
 outputs/    # results.json: seluruh angka yang dikutip di laporan
-app/        # aplikasi website Gradio (app.py, stylometry.py, inference.py, mlp_s1.tflite, config.json, requirements.txt)
+app/        # aplikasi website Streamlit (app.py, stylometry.py, inference.py, mlp_s1.tflite, config.json, requirements.txt)
 requirements.txt
 ```
 
@@ -34,10 +34,19 @@ Data dimuat dari Hugging Face Hub (`Flowerly/modern-fake-reviews`, `-glm`, `-lfm
 ## Lisensi data
 Modern Fake Reviews dirilis dengan lisensi CC-BY-4.0 oleh pembuatnya.
 
+## Aplikasi online
+Aplikasi dapat dibuka tanpa login di **APP_URL** (Streamlit Community Cloud, branch `main`, main file `app/app.py`, Python 3.13). Setiap commit baru ke branch `main` otomatis memperbarui aplikasi. Bila aplikasi lama tidak dikunjungi, Streamlit menidurkannya; tekan tombol untuk membangunkan dan tunggu sekitar satu menit.
+
 ## Menjalankan aplikasi secara lokal
 ```
 cd app
 pip install -r requirements.txt
-python app.py   # buka http://127.0.0.1:7860 di web browser
+streamlit run app.py   # buka http://localhost:8501 di web browser
 ```
 Cara pakai: tempel satu teks ulasan berbahasa Inggris (atau pilih contoh), tekan **Periksa Ulasan**, lalu baca kategori dugaan, catatan keandalan (FPR dan FNR sesuai panjang teks), dan peringatan bila teks terlalu pendek atau terlalu panjang. Tombol **Bersihkan** mengosongkan masukan dan hasil.
+
+## Deployment ke Streamlit Community Cloud
+1. Push repository ini ke GitHub (publik).
+2. Masuk ke https://share.streamlit.io dengan akun GitHub, pilih **Create app → Deploy a public app from GitHub**.
+3. Isi repository `seeyo-oo/DeepLearning_Cilukba`, branch `main`, main file path `app/app.py`, lalu pada **Advanced settings** pilih Python 3.13.
+4. Klik **Deploy**. Streamlit memasang paket dari `app/requirements.txt` (berkas requirements yang berada satu folder dengan main file) lalu menjalankan aplikasi.
