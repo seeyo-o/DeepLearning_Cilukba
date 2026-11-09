@@ -10,7 +10,7 @@ Proyek UTS mata kuliah **Pembelajaran Mendalam**, Kelompok **CILUKBA** (IFC-Sore
 | 231111101 | Andrian Cheniago |
 
 ## Ringkasan
-Model Multi-Layer Perceptron (DNN) dilatih untuk menduga apakah sebuah ulasan produk berbahasa Inggris ditulis manusia (OR) atau dihasilkan utuh oleh LLM (CG), hanya dari 11 fitur stilometrik. Evaluasi keandalan memakai tiga *random seed* (1998, 7, 42), *threshold* t* dengan FPR data validation ≤ 1%, uji McNemar *mid-p*, serta pengujian pada ulasan dari model AI yang tidak dipakai saat pelatihan (GLM-5.2 dan LFM2.5-1.2B). Proyek UTS menambahkan kompresi model ke TensorFlow Lite dan aplikasi website Streamlit untuk memeriksa satu teks ulasan. Aplikasi di-deploy ke Streamlit Community Cloud dan dapat dibuka di **APP_URL**.
+Model Multi-Layer Perceptron (DNN) dilatih untuk menduga apakah sebuah ulasan produk berbahasa Inggris ditulis manusia (OR) atau dihasilkan utuh oleh LLM (CG), hanya dari 11 fitur stilometrik. Evaluasi keandalan memakai tiga *random seed* (1998, 7, 42), *threshold* t* dengan FPR data validation ≤ 1%, uji McNemar *mid-p*, serta pengujian pada ulasan dari model AI yang tidak dipakai saat pelatihan (GLM-5.2 dan LFM2.5-1.2B). Proyek UTS menambahkan kompresi model ke TensorFlow Lite dan aplikasi website Streamlit untuk memeriksa satu teks ulasan. Aplikasi di-deploy ke Streamlit Community Cloud dan dapat dibuka di https://cilukba-deteksi-ulasan-ai.streamlit.app.
 
 ## Struktur
 ```
@@ -35,7 +35,7 @@ Data dimuat dari Hugging Face Hub (`Flowerly/modern-fake-reviews`, `-glm`, `-lfm
 Modern Fake Reviews dirilis dengan lisensi CC-BY-4.0 oleh pembuatnya.
 
 ## Aplikasi online
-Aplikasi dapat dibuka tanpa login di **APP_URL** (Streamlit Community Cloud, branch `main`, main file `app/app.py`, Python 3.13). Setiap commit baru ke branch `main` otomatis memperbarui aplikasi. Bila aplikasi lama tidak dikunjungi, Streamlit menidurkannya; tekan tombol untuk membangunkan dan tunggu sekitar satu menit.
+Aplikasi dapat dibuka tanpa login di https://cilukba-deteksi-ulasan-ai.streamlit.app (Streamlit Community Cloud, branch `main`, main file `app/app.py`, Python 3.13). Streamlit membaca fork `seeyo-o/DeepLearning_Cilukba`; setelah ada commit baru di repository ini, tekan **Sync fork** di halaman fork agar aplikasi ikut diperbarui. Bila aplikasi lama tidak dikunjungi, Streamlit menidurkannya; tekan tombol untuk membangunkan dan tunggu sekitar satu menit.
 
 ## Menjalankan aplikasi secara lokal
 ```
@@ -48,5 +48,5 @@ Cara pakai: tempel satu teks ulasan berbahasa Inggris (atau pilih contoh), tekan
 ## Deployment ke Streamlit Community Cloud
 1. Push repository ini ke GitHub (publik).
 2. Masuk ke https://share.streamlit.io dengan akun GitHub, pilih **Create app → Deploy a public app from GitHub**.
-3. Isi repository `seeyo-oo/DeepLearning_Cilukba`, branch `main`, main file path `app/app.py`, lalu pada **Advanced settings** pilih Python 3.13.
+3. Isi repository (repository ini atau fork-nya bila akun GitHub yang terhubung ke Streamlit bukan admin repository ini), branch `main`, main file path `app/app.py`, lalu pada **Advanced settings** pilih Python 3.13.
 4. Klik **Deploy**. Streamlit memasang paket dari `app/requirements.txt` (berkas requirements yang berada satu folder dengan main file) lalu menjalankan aplikasi.
