@@ -35,7 +35,7 @@ Data dimuat dari Hugging Face Hub (`Flowerly/modern-fake-reviews`, `-glm`, `-lfm
 Modern Fake Reviews dirilis dengan lisensi CC-BY-4.0 oleh pembuatnya.
 
 ## Aplikasi online
-Aplikasi dapat dibuka tanpa login di https://cilukba-deteksi-ulasan-ai.streamlit.app (Streamlit Community Cloud, branch `main`, main file `app/app.py`, Python 3.13). Streamlit membaca fork `seeyo-o/DeepLearning_Cilukba`; setelah ada commit baru di repository ini, tekan **Sync fork** di halaman fork agar aplikasi ikut diperbarui. Bila aplikasi lama tidak dikunjungi, Streamlit menidurkannya; tekan tombol untuk membangunkan dan tunggu sekitar satu menit.
+Aplikasi dapat dibuka tanpa login di https://cilukba-deteksi-ulasan-ai.streamlit.app (Streamlit Community Cloud, branch `main`, main file `app/app.py`, Python 3.13). Streamlit membaca fork `seeyo-o/DeepLearning_Cilukba`; setelah ada commit baru di repository ini, tekan **Sync fork** di halaman fork agar aplikasi ikut diperbarui. Bila aplikasi lama tidak dikunjungi, Streamlit menidurkannya; tekan tombol untuk membangunkannya lalu tunggu sampai aplikasi selesai dimuat.
 
 ## Menjalankan aplikasi secara lokal
 ```
