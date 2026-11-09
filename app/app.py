@@ -7,6 +7,7 @@ stylometry.py yang sama persis dengan saat pelatihan.
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 from typing import Tuple
 
@@ -108,5 +109,8 @@ with gr.Blocks(title="Deteksi Ulasan Produk Buatan AI") as demo:
     btn_clear.click(clear, None, [text_in, message, report_out, info])
 
 if __name__ == "__main__":
-    # Aplikasi dijalankan secara lokal; buka http://127.0.0.1:7860 di web browser.
-    demo.launch(server_name="127.0.0.1", server_port=7860)
+    # Di Render, variabel PORT disediakan platform sehingga server mendengarkan di
+    # 0.0.0.0:PORT. Saat dijalankan lokal tanpa PORT, buka http://127.0.0.1:7860.
+    on_server = "PORT" in os.environ
+    demo.launch(server_name="0.0.0.0" if on_server else "127.0.0.1",
+                server_port=int(os.environ.get("PORT", 7860)))

@@ -1,0 +1,17 @@
+# Blueprint Render: satu Web Service gratis untuk aplikasi Gradio di folder app/.
+services:
+  - type: web
+    name: cilukba-deteksi-ulasan-ai
+    runtime: python
+    plan: free
+    region: singapore
+    rootDir: app
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.7
+      - key: GRADIO_ANALYTICS_ENABLED
+        value: "False"
